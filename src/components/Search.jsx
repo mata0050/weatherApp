@@ -1,25 +1,40 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-function Search() {
+function Search({ setSearchResults }) {
   const [search, setSearch] = useState('');
 
   const onChange = (e) => setSearch((prevSate) => e.target.value);
 
   const onSubmit = (e) => {
     e.preventDefault();
+    setSearchResults(search);
+    setSearch('');
   };
 
-  console.log(search)
+  console.log(search);
   return (
     <StyledSearch>
       <form onSubmit={onSubmit}>
-        <input type='text' value={search} onChange={onChange} />
+        <input
+          type='text'
+          placeholder='Search your location and hit Enter'
+          value={search}
+          onChange={onChange}
+        />
       </form>
     </StyledSearch>
   );
 }
 
-const StyledSearch = styled.div``;
+const StyledSearch = styled.div`
+  margin-bottom: 30px;
+  input {
+    width: 80%;
+    height: 45px;
+    border-radius: 10px;
+    padding-left: 20px;
+  }
+`;
 
 export default Search;
