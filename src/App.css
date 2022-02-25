@@ -4,20 +4,12 @@
   box-sizing: border-box;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
 body {
   background-color: #fff;
   color: black;
+  max-width: 800px;
+  margin-inline: auto;
 }
 
 .box-shadow {
@@ -26,3 +18,4 @@ body {
   -moz-box-shadow: 0px 1px 12px 0px rgba(112, 112, 112, 0.75);
   border-radius:15px;
 }
+

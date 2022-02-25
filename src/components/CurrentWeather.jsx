@@ -34,9 +34,6 @@ function CurrentWeather({ data }) {
 const StyledWeather = styled.div`
 
 header {
-    /* height: 100px; */
-    max-width: 800px;
-    margin-inline: auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
 

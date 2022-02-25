@@ -3,7 +3,10 @@ import styled from 'styled-components';
 
 import useRequest from '../hooks/useRequest';
 import fakeData from '../fakeData/fakeData.json';
+
+// Components
 import CurrentWeather from './CurrentWeather';
+import CurrentForecast from './CurrentForecast';
 
 function WeatherDisplay() {
   const [temp, setTemp] = useState(true);
@@ -18,6 +21,7 @@ function WeatherDisplay() {
       {Object.keys(data).length !== 0 && (
         <>
           <CurrentWeather data={data} />
+          <CurrentForecast data={data.forecast}/>
         </>
       )}
     </StyledWeather>
