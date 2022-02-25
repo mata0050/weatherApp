@@ -4,8 +4,6 @@ import styled from 'styled-components';
 function Search({ setSearchResults }) {
   const [search, setSearch] = useState('');
 
-  const onChange = (e) => setSearch((prevSate) => e.target.value);
-
   const onSubmit = (e) => {
     e.preventDefault();
     setSearchResults(search);
@@ -20,7 +18,7 @@ function Search({ setSearchResults }) {
           type='text'
           placeholder='Search your location and hit Enter'
           value={search}
-          onChange={onChange}
+          onChange={(e) => setSearch(e.target.value)}
         />
       </form>
     </StyledSearch>
