@@ -4,9 +4,10 @@ import moment from 'moment';
 
 function CurrentForecast({ data }) {
   const currentWeather = data.forecastday[0].hour;
-  console.log(currentWeather);
+  console.log(data.forecastday);
   return (
     <StyledForecast>
+      <h2>Current Weather</h2>
       <div className='box-shadow current-forecast'>
         {currentWeather.map((weather) => (
           <div className='card box-shadow' key={weather.time_epoch}>
@@ -16,12 +17,31 @@ function CurrentForecast({ data }) {
           </div>
         ))}
       </div>
+
+      <h2>Future Forecast</h2>
+      {data.forecastday.map((futureWeather) => (
+        <div
+          key={futureWeather.date_epoch}
+          className='box-shadow current-forecast future-forecast'
+        >
+          {futureWeather.hour.map((weather) => (
+            <div className='card box-shadow' key={weather.time_epoch}>
+              <span>{moment(weather.time).format('h:mm:ss a')}</span>
+              <img src={weather.condition.icon} alt='weather icon' />
+              <p>{weather.temp_c} °C</p>
+            </div>
+          ))}
+        </div>
+      ))}
     </StyledForecast>
   );
 }
 
 const StyledForecast = styled.div`
   margin-top: 40px;
+  h2 {
+    margin: 20px 0;
+  }
   .current-forecast {
     padding: 20px;
     display: flex;
@@ -35,6 +55,10 @@ const StyledForecast = styled.div`
       align-items: center;
       background-color: #303134;
       color: #fff;
+
+      :hover {
+        background-color: #606060;
+      }
       span {
         font-size: 0.9rem;
         text-align: center;
@@ -51,6 +75,7 @@ const StyledForecast = styled.div`
     ::-webkit-scrollbar-track {
       background: #f1f1f1;
       border-radius: 5px;
+      width: 90%;
     }
 
     /* Handle */
@@ -64,6 +89,10 @@ const StyledForecast = styled.div`
       background: #555;
       border-radius: 5px;
     }
+  }
+
+  .future-forecast{
+    margin: 20px 0;
   }
 `;
 
