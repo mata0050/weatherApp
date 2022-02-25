@@ -3,6 +3,10 @@ import React, { useState } from 'react';
 import useRequest from './hooks/useRequest';
 import fakeData from './fakeData/fakeData.json';
 
+// React toastify
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // Components
 import CurrentWeather from './components/CurrentWeather';
 import Forecast from './components/Forecast';
@@ -18,9 +22,9 @@ function App() {
   // * https://www.weatherapi.com/
   // const data = fakeData;
 
-
   return (
     <div>
+      <ToastContainer />
       <h2 style={{ margin: '30px 0px' }}>WeatherApp</h2>
       <Search setSearchResults={setSearchResult} />
       {Object.keys(data).length !== 0 && (

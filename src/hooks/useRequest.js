@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const useRequest = (url) => {
   const [data, setData] = useState({});
@@ -16,10 +17,10 @@ const useRequest = (url) => {
       })
       .catch((err) => {
         console.log(err);
-        setErrorMsg('Error loading data');
+        toast.error('Error loading data, check the spellings');
         setLoading(false);
       });
-  },[url]);
+  }, [url]);
 
   return { data, loading, errorMsg };
 };
