@@ -1,17 +1,16 @@
 import './App.css';
-import React, { useState } from 'react';
+import React from 'react';
 import useRequest from './hooks/useRequest';
 import fakeData from './fakeData/fakeData.json';
 
 // Components
 import CurrentWeather from './components/CurrentWeather';
-import CurrentForecast from './components/CurrentForecast';
+import Forecast from './components/Forecast';
 
 function App() {
-  const [temp, setTemp] = useState(true);
   const url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_KEY}&q=London&days=10&aqi=yes&alerts=no`;
-  // const { data, loading } = useRequest(url);
-  const data = fakeData;
+  const { data, loading } = useRequest(url);
+  // const data = fakeData;
   console.log(data);
 
   return (
@@ -20,7 +19,7 @@ function App() {
       {Object.keys(data).length !== 0 && (
         <>
           <CurrentWeather data={data} />
-          <CurrentForecast data={data.forecast} />
+          <Forecast data={data.forecast} />
         </>
       )}
     </div>

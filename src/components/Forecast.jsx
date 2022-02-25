@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
 
-function CurrentForecast({ data }) {
+function Forecast({ data }) {
   const currentWeather = data.forecastday[0].hour;
-  console.log(data.forecastday);
+
   return (
     <StyledForecast>
       <h2>Current Weather</h2>
@@ -91,9 +91,9 @@ const StyledForecast = styled.div`
     }
   }
 
-  .future-forecast{
+  .future-forecast {
     margin: 20px 0;
   }
 `;
 
-export default CurrentForecast;
+export default Forecast;
