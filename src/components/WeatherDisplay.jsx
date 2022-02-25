@@ -25,9 +25,7 @@ function WeatherDisplay() {
 }
 
 const StyledWeather = styled.div`
-  h2 {
-    font-size: 5rem;
-  }
+
 
   
   }

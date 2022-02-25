@@ -6,7 +6,7 @@ function CurrentWeather({ data }) {
   return (
     <StyledWeather>
       <header>
-        <div className='current-weather'>
+        <div className='current-weather box-shadow'>
           <img
             src={data.current.condition.icon}
             alt={data.current.condition.text}
@@ -21,7 +21,7 @@ function CurrentWeather({ data }) {
             <h5>Wind: {data.current.wind_kph} km/h</h5>
           </div>
         </div>
-        <div className='location'>
+        <div className='location box-shadow'>
           <h2>{data.location.region}</h2>
           <h3>{data.location.country}</h3>
           <h4>{data.location.name}</h4>
@@ -34,7 +34,7 @@ function CurrentWeather({ data }) {
 const StyledWeather = styled.div`
 
 header {
-    height: 100px;
+    /* height: 100px; */
     max-width: 800px;
     margin-inline: auto;
     display: grid;
@@ -44,22 +44,47 @@ header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 280px;
+      width: 300px;
+      padding: 20px;
+   
 
       img {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
       }
 
       h1 {
         font-size: 3rem;
       }
+      
       .content {
-        margin-top:-30px;
+
         h5{
           font-weight: normal;
-          margin-bottom: -15px;
         }
+      }
+
+    }
+
+    .location{
+      padding: 20px;
+
+      h2{
+        text-align: right;
+        font-size: 1rem;
+        margin-bottom: 10px;
+      }
+
+      h3{
+        text-align: right;
+        font-size: .8rem;
+        margin-bottom:0px;
+      }
+      h4{
+        text-align: right;
+        font-size: .8rem;
+        font-weight: 500;
+        margin-top:10px;
       }
     }
 
