@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 function CurrentWeather({ data }) {
-  const [temp, setTemp] = useState(false);
   return (
     <StyledWeather>
       <header>
@@ -11,11 +10,9 @@ function CurrentWeather({ data }) {
             src={data.current.condition.icon}
             alt={data.current.condition.text}
           />
-          {temp ? (
-            <h1>{data.current.temp_c}</h1>
-          ) : (
-            <h1>{data.current.temp_f}</h1>
-          )}
+
+          <h1>{data.current.temp_c}°C</h1>
+
           <div className='content'>
             <h5>Precipitation: {data.current.precip_in}</h5>
             <h5>Wind: {data.current.wind_kph} km/h</h5>
@@ -34,14 +31,14 @@ function CurrentWeather({ data }) {
 const StyledWeather = styled.div`
 
 header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: space-between;
 
     .current-weather {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 300px;
+      width: 400px;
       padding: 20px;
    
 
@@ -55,15 +52,15 @@ header {
       }
       
       .content {
-
         h5{
           font-weight: normal;
         }
       }
-
+      
     }
-
+    
     .location{
+      width: 350px;
       padding: 20px;
 
       h2{
