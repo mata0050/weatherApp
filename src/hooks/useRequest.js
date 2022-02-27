@@ -5,7 +5,6 @@ import { toast } from 'react-toastify';
 const useRequest = (url) => {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
-  const [errorMsg, setErrorMsg] = useState('');
 
   useEffect(() => {
     axios
@@ -13,7 +12,6 @@ const useRequest = (url) => {
       .then((result) => {
         setLoading(false);
         setData(result.data);
-        setErrorMsg('');
       })
       .catch((err) => {
         console.log(err);
@@ -22,7 +20,7 @@ const useRequest = (url) => {
       });
   }, [url]);
 
-  return { data, loading, errorMsg };
+  return { data, loading };
 };
 
 export default useRequest;
