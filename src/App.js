@@ -4,7 +4,7 @@ import useRequest from './hooks/useRequest';
 import fakeData from './fakeData/fakeData.json';
 
 // React toastify
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Components
@@ -15,7 +15,7 @@ import Search from './components/Search';
 function App() {
   const [searchResult, setSearchResult] = useState('Ottawa');
   const url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_KEY}&q=${searchResult}&days=10&aqi=yes&alerts=no`;
-  const { data, loading } = useRequest(url);
+  const { data } = useRequest(url);
 
   // * comment out line 13 and uncomment line 17 to use fake data
   // * if you don't want to register for an API key at
