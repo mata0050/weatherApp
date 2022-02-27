@@ -4,7 +4,7 @@
 
 Your weather app will start up using fake data that can be found it the fakeData folder. The search feature won't work as you are using fake data. To make the app work:
 
-1. Go to [https://weatherapi.com]('https://www.weatherapi.com/').
+1. Go to [https://weatherapi.com](https://www.weatherapi.com/).
 2. Create an account, in dashboards and generate an api key.
 3. Add the api key to your .env file like `REACT_APP_WEATHER_KEY = add key here`.
 4. Go to App.js and uncomment out line 17 and line 18 and comment line 23 to use you own weather api key.
