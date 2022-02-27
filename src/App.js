@@ -14,13 +14,14 @@ import Search from './components/Search';
 
 function App() {
   const [searchResult, setSearchResult] = useState('Ottawa');
-  const url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_KEY}&q=${searchResult}&days=10&aqi=yes&alerts=no`;
-  const { data } = useRequest(url);
+  // const url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_WEATHER_KEY}&q=${searchResult}&days=10&aqi=yes&alerts=no`;
+  // const { data } = useRequest(url);
 
-  // * comment out line 13 and uncomment line 17 to use fake data
+  // * uncomment out line 17 and line 18 and comment line 23 to use you
+  // * own weather api key
   // * if you don't want to register for an API key at
   // * https://www.weatherapi.com/
-  // const data = fakeData;
+  const data = fakeData;
 
   return (
     <div>
